@@ -1,0 +1,74 @@
+{
+  "config": {
+    "mode": "smoke",
+    "folds": 5,
+    "n_seeds": 1,
+    "seed": 0,
+    "epochs": 2,
+    "batch": 16,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "max_frames": 200,
+    "num_workers": 0,
+    "label_smoothing": 0.1,
+    "class_weight_beta": 0.5,
+    "focal_gamma": 0.0,
+    "mixup_alpha": 0.2,
+    "time_mask": 40,
+    "freq_mask": 16,
+    "n_masks": 2,
+    "rnn_hidden": 128,
+    "rnn_layers": 2,
+    "p_drop": 0.3,
+    "cnn_drop": 0.1,
+    "inner_val_frac": 0.25,
+    "run_tag": "",
+    "max_train_batches": 8,
+    "max_eval_batches": 8
+  },
+  "env": {
+    "device": "cuda",
+    "torch": "2.6.0+cu124",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "elapsed_min": 0.0,
+  "ensemble_oof": {
+    "acc": 0.15666666666666668,
+    "uar": 0.14687499999999998,
+    "macro_f1": 0.06008184523809524,
+    "weighted_f1": 0.06408730158730158
+  },
+  "per_seed_oof": [
+    {
+      "seed": 0,
+      "acc": 0.1567,
+      "uar": 0.1469,
+      "macro_f1": 0.0601,
+      "weighted_f1": 0.0641
+    }
+  ],
+  "seed_macro_f1_mean": 0.0601,
+  "fold_macro_f1_std_mean": 0.0,
+  "per_class_f1": {
+    "neutral": 0.0,
+    "calm": 0.0,
+    "happy": 0.0,
+    "sad": 0.0,
+    "angry": 0.2619,
+    "fearful": 0.0,
+    "disgust": 0.0,
+    "surprised": 0.2188
+  },
+  "folds": [
+    {
+      "seed": 0,
+      "fold": 1,
+      "test_actors": "[4, 9, 14, 19, 24]",
+      "best_epoch": 2,
+      "acc": 0.1567,
+      "uar": 0.1469,
+      "macro_f1": 0.0601,
+      "weighted_f1": 0.0641
+    }
+  ]
+}

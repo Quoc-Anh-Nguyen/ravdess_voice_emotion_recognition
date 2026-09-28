@@ -1,0 +1,36 @@
+# Datasets & heavy data folders
+data/
+*.zip
+*.tar.gz
+*.7z
+
+# Model weights & checkpoints
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.bin
+*.onnx
+*.safetensors
+
+# Python cache & virtual environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Environment & Sensitive credentials
+.env
+.env.*
+*.key
+*.pem
+
+# Session data & IDE
+.codex/session-data/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

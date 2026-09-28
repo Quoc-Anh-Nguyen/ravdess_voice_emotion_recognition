@@ -1,0 +1,31 @@
+{
+  "privacy-guard": {
+    "PreToolUse": [
+      {
+        "matcher": "view_file|replace_file_content|write_to_file|run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python hooks/privacy_guard.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "quality-check": {
+    "PostToolUse": [
+      {
+        "matcher": "replace_file_content|write_to_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python hooks/quality_check.py",
+            "timeout": 20
+          }
+        ]
+      }
+    ]
+  }
+}
+

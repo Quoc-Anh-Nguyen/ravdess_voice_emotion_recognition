@@ -1,0 +1,138 @@
+{
+  "description": "Repository lifecycle, privacy, context, and verification hooks for Codex.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/context.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/context.py\"",
+            "timeout": 10,
+            "statusMessage": "Loading repository context"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/context.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/context.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/context.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/context.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/privacy_guard.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/privacy_guard.py\"",
+            "timeout": 5,
+            "statusMessage": "Checking repository privacy policy"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/tool_counter.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/tool_counter.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/privacy_guard.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/privacy_guard.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/quality_check.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/quality_check.py\"",
+            "timeout": 50,
+            "statusMessage": "Checking edited source files"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/lifecycle_state.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/lifecycle_state.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/context.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/context.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/lifecycle_state.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/lifecycle_state.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/lifecycle_state.py\"",
+            "commandWindows": "python \"$(git rev-parse --show-toplevel)/.codex/hooks/lifecycle_state.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

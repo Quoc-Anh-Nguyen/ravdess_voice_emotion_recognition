@@ -1,0 +1,31 @@
+{
+  "config": {
+    "model": "microsoft/wavlm-base-plus",
+    "mode": "quick",
+    "folds": 5,
+    "epochs": 6,
+    "batch": 2,
+    "accum": 8,
+    "max_sec": 4.0,
+    "unfreeze_top": 12,
+    "grad_ckpt": true,
+    "augment": true,
+    "enc_lr": 2e-05,
+    "head_lr": 0.0002,
+    "llrd": 0.9,
+    "weight_decay": 0.01,
+    "label_smoothing": 0.1,
+    "mask_time_prob": 0.08,
+    "p_drop": 0.1,
+    "proj_hidden": 256,
+    "max_train_batches": 0,
+    "max_eval_batches": 0,
+    "seed": 0
+  },
+  "env": {
+    "device": "cuda",
+    "torch": "2.6.0+cu124",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "vram_GB": 4.3
+  }
+}

@@ -1,0 +1,17 @@
+Best model: SVM (RBF)
+Speaker-independent accuracy: 0.5125  macro-F1: 0.4998
+
+              precision    recall  f1-score   support
+
+     neutral      0.329     0.281     0.303        96
+        calm      0.552     0.552     0.552       192
+       happy      0.463     0.490     0.476       192
+         sad      0.371     0.391     0.381       192
+       angry      0.620     0.604     0.612       192
+     fearful      0.513     0.609     0.557       192
+     disgust      0.517     0.542     0.529       192
+   surprised      0.683     0.516     0.588       192
+
+    accuracy                          0.512      1440
+   macro avg      0.506     0.498     0.500      1440
+weighted avg      0.518     0.512     0.513      1440

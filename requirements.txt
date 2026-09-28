@@ -1,0 +1,43 @@
+# ============================================================================
+# RAVDESS Speech Emotion Recognition — full ecosystem requirements
+# Python 3.12  (tested on 3.12.10, Windows x64)
+#
+# Install:
+#     pip install -r requirements.txt
+#
+# NOTE on PyTorch + CUDA:
+#   The pinned torch build below is CUDA 12.4 (+cu124). To install it you must
+#   add PyTorch's wheel index:
+#       pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu124
+#   For a CPU-only machine, drop the "+cu124" suffix (use `torch==2.6.0`)
+#   and install from the default PyPI index.
+# ============================================================================
+
+# --- Core scientific stack -------------------------------------------------
+numpy==2.2.6
+pandas==2.3.0
+scikit-learn==1.7.0
+
+# --- Audio I/O & feature extraction ----------------------------------------
+# librosa: load/resample/trim, log-mel & MFCC (preprocess + EDA + tabular features)
+# soundfile: raw WAV read/write
+librosa==0.11.0
+soundfile==0.14.0
+
+# --- Deep learning / self-supervised audio (train_ssl.py) ------------------
+# torch: training the WavLM classifier head + fine-tuning
+# transformers: AutoFeatureExtractor / AutoModel (default microsoft/wavlm-base-plus)
+transformers==4.57.6
+
+# --- Visualization & EDA ---------------------------------------------------
+# matplotlib + seaborn: confusion matrices, EDA plots
+# umap-learn: low-dimensional embedding projection in eda.py
+matplotlib==3.10.9
+seaborn==0.13.2
+umap-learn==0.5.12
+
+# --- Dataset download & utilities ------------------------------------------
+# requests: download RAVDESS archive from Zenodo
+# tqdm: progress bars (download, preprocess, feature extraction)
+requests==2.34.2
+tqdm==4.67.3

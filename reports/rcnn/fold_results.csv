@@ -1,0 +1,2 @@
+seed,fold,test_actors,best_epoch,acc,uar,macro_f1,weighted_f1
+0,1,"[4, 9, 14, 19, 24]",2,0.1567,0.1469,0.0601,0.0641

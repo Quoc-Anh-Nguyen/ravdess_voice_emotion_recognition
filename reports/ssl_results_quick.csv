@@ -1,0 +1,2 @@
+fold,test_actors,acc,macro_f1
+1,"[np.int64(4), np.int64(9), np.int64(14), np.int64(19), np.int64(24)]",0.4833,0.4291
